@@ -20,7 +20,7 @@ setup(
     version=version,  # Required
     description="Small tools/scripts written in Python for MDU",
     long_description=long_description,  # Optional
-    long_description_content_type="text/markdown",  # Optional 
+    long_description_content_type="text/markdown",  # Optional
     url="https://github.com/MDU-PHL/mdu-pytools",  # Optional
     author="MDU Bioinformatics",  # Optional
     author_email="andersgs near gmail dot com",  # Optional
@@ -51,8 +51,8 @@ setup(
         "merge-ngs-lanes=mdu_pytools.merge_ngs_lanes:main"]},  # Optional
     project_urls={  # Optional
         "Bug Reports": "https://github.com/MDU-PHL/mdu-pytools/issues",
-        #"Funding": "https://donate.pypi.org",
-        #"Say Thanks!": "http://saythanks.io/to/example",
+        # "Funding": "https://donate.pypi.org",
+        # "Say Thanks!": "http://saythanks.io/to/example",
         "Source": "https://github.com/MDU-PHL/mdu-pytools/",
     },
 )
