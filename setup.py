@@ -46,8 +46,9 @@ setup(
         "dev": ["pre-commit", "pipenv"],
         "test": ["pytest", "pytest-cov"],
     },
-#    package_data={"package_name": ["data/example_data.csv"]},  # Optional
-    entry_points={"console_scripts": ["sample=sample:main"]},  # Optional
+    #    package_data={"package_name": ["data/example_data.csv"]},  # Optional
+    entry_points={"console_scripts": [
+        "merge-ngs-lanes=mdu_pytools.merge_ngs_lanes:main"]},  # Optional
     project_urls={  # Optional
         "Bug Reports": "https://github.com/MDU-PHL/mdu-pytools/issues",
         #"Funding": "https://donate.pypi.org",
