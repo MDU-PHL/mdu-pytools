@@ -36,14 +36,15 @@ setup(
     keywords="bioinformatics microbial-genomics",
     packages=find_packages(exclude=["contrib", "docs", "tests"]),  # Required
     python_requires=">=3.6, <4",
-    
+
     install_requires=[
         "pandas",
         "loguru",
-        "click"
+        "click",
+        "tqdm"
     ],  # Optional
     extras_require={  # Optional
-        "dev": ["pre-commit", "pipenv"],
+        "dev": ["pre-commit", "pipenv", "bumpversion", "invoke"],
         "test": ["pytest", "pytest-cov"],
     },
     #    package_data={"package_name": ["data/example_data.csv"]},  # Optional
