@@ -1,6 +1,6 @@
 # MDU Python Tools
 
-[![CircleCI](https://circleci.com/gh/MDU-PHL/mdu-pytools.svg?style=svg)](https://circleci.com/gh/MDU-PHL/mdu-pytools)
+[![CircleCI](https://circleci.com/gh/MDU-PHL/mdu-pytools.svg?style=svg)](https://circleci.com/gh/MDU-PHL/mdu-pytools) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mdu-pytools) ![PyPI](https://img.shields.io/pypi/v/mdu-pytools) ![PyPI - License](https://img.shields.io/pypi/l/mdu-pytools)
 
 - [MDU Python Tools](#mdu-python-tools)
   - [Background](#background)
