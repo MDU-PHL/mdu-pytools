@@ -102,16 +102,16 @@ def test_end_to_end_no_subfolder(tmpdata):
     results = runner.invoke(
         merge_ngs_lanes.main, ["-i", str(tmpdata), "-o", "outfolder"]
     )
-    out = results.output.split("\n")
-    out_exp1 = re.sub(str(tmpdata) + "/", "", out[1])
-    out_exp2 = re.sub(str(tmpdata) + "/", "", out[2])
+    out = sorted(results.output.split("\n"))
+    out_exp_ntc = re.sub(str(tmpdata) + "/", "", out[2])
+    out_exp_sample = re.sub(str(tmpdata) + "/", "", out[3])
     assert results.exit_code == 0
     assert (
-        out_exp1
+        out_exp_sample
         == "mkdir -p outfolder/sample1 && cat sample1_R1_L001.fastq.gz sample1_R1_L002.fastq.gz sample1_R1_L003.fastq.gz sample1_R1_L004.fastq.gz > outfolder/sample1/sample1_R1.fastq.gz && cat sample1_R2_L001.fastq.gz sample1_R2_L002.fastq.gz sample1_R2_L003.fastq.gz sample1_R2_L004.fastq.gz > outfolder/sample1/sample1_R2.fastq.gz"
     )
     assert (
-        out_exp2
+        out_exp_ntc
         == "mkdir -p outfolder/NTC && cat NTC_R1_L001.fastq.gz NTC_R1_L002.fastq.gz NTC_R1_L003.fastq.gz NTC_R1_L004.fastq.gz > outfolder/NTC/NTC_R1.fastq.gz && cat NTC_R2_L001.fastq.gz NTC_R2_L002.fastq.gz NTC_R2_L003.fastq.gz NTC_R2_L004.fastq.gz > outfolder/NTC/NTC_R2.fastq.gz"
     )
 
@@ -136,15 +136,15 @@ def test_end_to_end_with_subfolder(tmpdata):
             "(?<=NTC).*",
         ],
     )
-    out = results.output.split("\n")
-    out_exp1 = re.sub(str(tmpdata) + "/", "", out[1])
-    out_exp2 = re.sub(str(tmpdata) + "/", "", out[2])
+    out = sorted(results.output.split("\n"))
+    out_exp_ntc = re.sub(str(tmpdata) + "/", "", out[3])
+    out_exp_sample = re.sub(str(tmpdata) + "/", "", out[2])
     assert results.exit_code == 0
     assert (
-        out_exp1
+        out_exp_sample
         == "mkdir -p outfolder/data/sample1 && cat sample1_R1_L001.fastq.gz sample1_R1_L002.fastq.gz sample1_R1_L003.fastq.gz sample1_R1_L004.fastq.gz > outfolder/data/sample1/sample1_R1.fastq.gz && cat sample1_R2_L001.fastq.gz sample1_R2_L002.fastq.gz sample1_R2_L003.fastq.gz sample1_R2_L004.fastq.gz > outfolder/data/sample1/sample1_R2.fastq.gz"
     )
     assert (
-        out_exp2
+        out_exp_ntc
         == "mkdir -p outfolder/ntc/NTC && cat NTC_R1_L001.fastq.gz NTC_R1_L002.fastq.gz NTC_R1_L003.fastq.gz NTC_R1_L004.fastq.gz > outfolder/ntc/NTC/NTC_R1.fastq.gz && cat NTC_R2_L001.fastq.gz NTC_R2_L002.fastq.gz NTC_R2_L003.fastq.gz NTC_R2_L004.fastq.gz > outfolder/ntc/NTC/NTC_R2.fastq.gz"
     )
