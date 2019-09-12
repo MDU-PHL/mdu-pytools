@@ -37,3 +37,16 @@ while all other samples will be added to a subfolder called `data`.
 ```bash
 merge-ngs-lanes -i /path/to/fastq -o /path/to/output --subfolder 'data' '(?!NTC).*' --subfolder 'ntc' '(?<=NTC).*' > cmd.sh
 ```
+
+# Development
+
+## Development environment
+
+To develop with the same environment use `vagrant` and `virtualbox`:
+
+```bash
+vagrant up
+vagrant ssh
+```
+
+Once logged in to the VM, the shared folder is in `/vagrant`.
