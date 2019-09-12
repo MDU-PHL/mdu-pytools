@@ -49,16 +49,19 @@ def main(infolder, output, subfolder):
 
     Assumes the sample_id is formed by the characters up to the first "_" in the filename.
 
+    \b
     Usage:
     # simple usage
     merge-ngs-lanes -i /path/to/fastq -o /path/to/output > cmd.sh
 
+    \b
     # split output to different subfolders with regex
     # in the case below, samples starting with NTC will but in an ntc subfolder
     # samples not starting with an NTC will be put in the data subfolder
     # these are subfolders of output folder
     merge-ngs-lanes -i /path/to/fastq -o /path/to/output --subfolder 'data' '(?!NTC).*' --subfolder 'ntc' '(?<=NTC).*' > cmd
 
+    \b
     # once the cmd.sh file is created run
     # it is work running less cmd.sh to check the commands
     # one may need to play a bit with the regex expressions to get the subfolders
