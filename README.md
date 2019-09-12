@@ -2,7 +2,12 @@
 
 [![CircleCI](https://circleci.com/gh/MDU-PHL/mdu-pytools.svg?style=svg)](https://circleci.com/gh/MDU-PHL/mdu-pytools)
 
-
+- [MDU Python Tools](#mdu-python-tools)
+  - [Background](#background)
+  - [Tools](#tools)
+    - [merge-ngs-lanes](#merge-ngs-lanes)
+  - [Development](#development)
+    - [Development environment](#development-environment)
 
 ## Background
 
