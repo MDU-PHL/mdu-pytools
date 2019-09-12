@@ -2,6 +2,8 @@
 
 [![CircleCI](https://circleci.com/gh/MDU-PHL/mdu-pytools.svg?style=svg)](https://circleci.com/gh/MDU-PHL/mdu-pytools)
 
+
+
 ## Background
 
 Some simple tools in python for MDU
@@ -38,9 +40,9 @@ while all other samples will be added to a subfolder called `data`.
 merge-ngs-lanes -i /path/to/fastq -o /path/to/output --subfolder 'data' '(?!NTC).*' --subfolder 'ntc' '(?<=NTC).*' > cmd.sh
 ```
 
-# Development
+## Development
 
-## Development environment
+### Development environment
 
 To develop with the same environment use `vagrant` and `virtualbox`:
 
