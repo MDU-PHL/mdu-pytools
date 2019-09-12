@@ -6,8 +6,6 @@ can then be accessed by other tests
 """
 
 import pathlib
-import shutil
-import pkg_resources
 import pytest
 
 
@@ -18,6 +16,9 @@ def tmpdata(tmpdir_factory):
     with the package data
     """
     tmpdir = pathlib.Path(tmpdir_factory.mktemp("data"))
-    datafile = pkg_resources.resource_filename("package_name", "data/example_data.csv")
-    shutil.copy(datafile, tmpdir.absolute())
+    for sample_id in ["sample1", "NTC"]:
+        for lane in "-":
+            for read in ["R" + read_numb for read_numb in ["1", "2"]]:
+                filename = tmpdir / f"{sample_id}_{read}_{lane}.fastq.gz"
+                filename.touch()
     return tmpdir
