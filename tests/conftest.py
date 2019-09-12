@@ -17,8 +17,8 @@ def tmpdata(tmpdir_factory):
     """
     tmpdir = pathlib.Path(tmpdir_factory.mktemp("data"))
     for sample_id in ["sample1", "NTC"]:
-        for lane in "-":
-            for read in ["R" + read_numb for read_numb in ["1", "2"]]:
+        for lane in [f"L00{lane_numb}" for lane_numb in range(1, 5)]:
+            for read in [f"R{read_numb}" for read_numb in range(1, 3)]:
                 filename = tmpdir / f"{sample_id}_{read}_{lane}.fastq.gz"
                 filename.touch()
     return tmpdir
