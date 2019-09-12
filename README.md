@@ -37,8 +37,3 @@ while all other samples will be added to a subfolder called `data`.
 ```bash
 merge-ngs-lanes -i /path/to/fastq -o /path/to/output --subfolder 'data' '(?!NTC).*' --subfolder 'ntc' '(?<=NTC).*' > cmd.sh
 ```
-
-# TODO
-
-[ ] Add some docs
-[ ] Make it a true template
