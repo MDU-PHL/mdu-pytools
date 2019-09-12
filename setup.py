@@ -23,7 +23,7 @@ setup(
     long_description_content_type="text/markdown",  # Optional
     url="https://github.com/MDU-PHL/mdu-pytools",  # Optional
     author="MDU Bioinformatics",  # Optional
-    author_email="andersgs near gmail dot com",  # Optional
+    author_email="andersgs@gmail.com",  # Optional
     classifiers=[  # Optional
         "Development Status :: 4 - Beta",
         "Intended Audience :: Science/Research",
@@ -36,20 +36,15 @@ setup(
     keywords="bioinformatics microbial-genomics",
     packages=find_packages(exclude=["contrib", "docs", "tests"]),  # Required
     python_requires=">=3.6, <4",
-
-    install_requires=[
-        "pandas",
-        "loguru",
-        "click",
-        "tqdm"
-    ],  # Optional
+    install_requires=["pandas", "loguru", "click", "tqdm"],  # Optional
     extras_require={  # Optional
         "dev": ["pre-commit", "pipenv", "bumpversion", "invoke"],
         "test": ["pytest", "pytest-cov"],
     },
     #    package_data={"package_name": ["data/example_data.csv"]},  # Optional
-    entry_points={"console_scripts": [
-        "merge-ngs-lanes=mdu_pytools.merge_ngs_lanes:main"]},  # Optional
+    entry_points={
+        "console_scripts": ["merge-ngs-lanes=mdu_pytools.merge_ngs_lanes:main"]
+    },  # Optional
     project_urls={  # Optional
         "Bug Reports": "https://github.com/MDU-PHL/mdu-pytools/issues",
         # "Funding": "https://donate.pypi.org",
