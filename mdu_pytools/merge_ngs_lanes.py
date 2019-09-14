@@ -52,14 +52,14 @@ def main(infolder, output, subfolder):
     \b
     Usage:
     # simple usage
-    merge-ngs-lanes -i /path/to/fastq -o /path/to/output > cmd.sh
+    mdu-merge-ngs-lanes -i /path/to/fastq -o /path/to/output > cmd.sh
 
     \b
     # split output to different subfolders with regex
     # in the case below, samples starting with NTC will but in an ntc subfolder
     # samples not starting with an NTC will be put in the data subfolder
     # these are subfolders of output folder
-    merge-ngs-lanes -i /path/to/fastq -o /path/to/output --subfolder 'data' '(?!NTC).*' --subfolder 'ntc' '(?<=NTC).*' > cmd
+    mdu-merge-ngs-lanes -i /path/to/fastq -o /path/to/output --subfolder 'data' '(?!NTC).*' --subfolder 'ntc' '(?<=NTC).*' > cmd
 
     \b
     # once the cmd.sh file is created run

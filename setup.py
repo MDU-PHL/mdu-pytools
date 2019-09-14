@@ -43,7 +43,7 @@ setup(
     },
     #    package_data={"package_name": ["data/example_data.csv"]},  # Optional
     entry_points={
-        "console_scripts": ["merge-ngs-lanes=mdu_pytools.merge_ngs_lanes:main"]
+        "console_scripts": ["mdu-merge-ngs-lanes=mdu_pytools.merge_ngs_lanes:main"]
     },  # Optional
     project_urls={  # Optional
         "Bug Reports": "https://github.com/MDU-PHL/mdu-pytools/issues",
