@@ -27,15 +27,45 @@ def check_for_unstaged_changes(ctx):
         raise error
 
 
+@invoke.task
+def bump_patch(ctx):
+    """
+    Bump version by patch
+    """
+    ctx.run("bumpversion patch --verbose")
+
+
+@invoke.task
+def bump_minor(ctx):
+    """
+    Bump version by minor
+    """
+    ctx.run("bumpversion minor --verbose")
+
+
 @invoke.task(pre=[check_for_unstaged_changes, clean])
+def build_distribution(ctx):
+    """
+    Use twine to build a distribution
+    """
+    ctx.run("python3 setup.py sdist bdist_wheel")
+    ctx.run("twine check dist/*")
+    ctx.run("twine upload dist/*")
+
+
+@invoke.task(pre=[bump_patch, build_distribution])
 def deploy_patch(ctx):
     """
     Automate deployment to pypi
     """
-    ctx.run("bumpversion patch --verbose")
-    ctx.run("python3 setup.py sdist bdist_wheel")
-    ctx.run("twine check dist/*")
-    ctx.run("twine upload dist/*")
+    ctx.run("git push --tags")
+
+
+@invoke.task(pre=[bump_minor, build_distribution])
+def deploy_minor(ctx):
+    """
+    Automate deployment to pypi
+    """
     ctx.run("git push --tags")
 
 
