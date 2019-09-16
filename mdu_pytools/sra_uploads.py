@@ -32,12 +32,12 @@ def copy_fastq(isolates, reads_folder):
     run_cmd(cmd)
 
 
-def upload_using_ascp(folder, email, ascp_key):
+def upload_using_ascp(folder, sra_subfolder, ascp_key):
     """
     Run ascp to upload data to SRA.
     """
     logger.info("Starting upload of data to SRA.")
-    cmd = f"ascp -i {ascp_key} -QT -l500m -d *.fastq.gz subasp@upload.ncbi.nlm.nih.gov:uploads/{email}_qf6EpWco/{folder}"
+    cmd = f"ascp -i {ascp_key} -QT -l500m -d *.fastq.gz subasp@upload.ncbi.nlm.nih.gov:uploads/{sra_subfolder}/{folder}"
     run_cmd(cmd)
 
 
@@ -53,7 +53,7 @@ def upload_using_ascp(folder, email, ascp_key):
 @click.option(
     "-r",
     "--reads-folder",
-    help="Where reads are located (uses MDU-READS env variable if available).",
+    help="Where reads are located (uses MDU_READS env variable if available).",
     default=os.environ.get("MDU_READS", None),
     show_default=True,
 )
@@ -65,18 +65,18 @@ def upload_using_ascp(folder, email, ascp_key):
     show_default=True,
 )
 @click.option(
-    "-e",
-    "--email",
-    help="Email of the SRA account (uses SRA-EMAIL env variable is available).",
-    default=os.environ.get("SRA_EMAIL", None),
+    "-s",
+    "--sra-subfolder",
+    help="SRA subfolder owned by you where data will copied to (uses SRA_SUBFOLDER env variable is available).",
+    default=os.environ.get("SRA_SUBFOLDER", None),
     show_default=True,
 )
-def main(isolates, folder, reads_folder, ascp_key, email):
+def main(isolates, folder, reads_folder, ascp_key, sra_subfolder):
     """
     """
     logger.info("Welcome to SRA Uploads...")
     copy_fastq(isolates, reads_folder)
-    upload_using_ascp(folder, email, ascp_key)
+    upload_using_ascp(folder, sra_subfolder, ascp_key)
     logger.info("All done")
 
 
